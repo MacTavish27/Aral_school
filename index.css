@@ -11,6 +11,11 @@ html {
   position: relative;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
 @font-face {
   font-family: "SeasonSansTRIAL-Bold";
   src:
@@ -72,7 +77,7 @@ html {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   pointer-events: none;
   z-index: 0;
 }
@@ -189,20 +194,22 @@ html {
 }
 
 #header {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   margin-top: 173px;
   position: relative;
   z-index: 2;
+  height: 100%;
 }
 
 .header-box {
-  width: 50%;
+  grid-column: 2/2;
   display: flex;
   align-items: center;
   height: 500px;
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
+  margin: auto 0;
 }
 
 .header-text {
@@ -219,16 +226,21 @@ html {
   font-family: "SeasonMix-Medium";
 }
 
-.header-image {
-  width: 50%;
-  height: auto;
+#header-image {
+  grid-column: 1/2;
+  height: 664px;
+  margin: auto 0;
+}
+
+#header-image img {
+  width: 100%;
+  height: 100%;
   object-fit: none;
-  display: block;
 }
 
 #intro {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   border-top: 1px solid #000;
   margin-top: 40px;
 }
@@ -250,8 +262,9 @@ html {
 
 .intro-right-box {
   grid-column: 4 / 5;
-  width: 256px;
-  height: 256px;
+  width: min(100%, 256px);
+  aspect-ratio: 1 / 1;
+  height: auto;
   position: relative;
 }
 
@@ -316,7 +329,7 @@ html {
 
 #climate {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   position: relative;
   z-index: 1;
   max-height: 760px;
@@ -342,7 +355,7 @@ html {
 }
 
 .climate-description p {
-  width: 458px;
+  width: min(100%, 458px);
   height: 620px;
   font-size: 16px;
   line-height: 24px;
@@ -351,7 +364,7 @@ html {
 
 #programme-vision {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   position: relative;
   margin-top: 120px;
   border-top: 1px solid #000;
@@ -396,7 +409,7 @@ html {
 
 .about {
   grid-column: 1/2;
-  width: 520px;
+  width: min(100%, 520px);
   height: 350px;
   position: relative;
   margin: -60px auto;
@@ -432,10 +445,11 @@ html {
 
 .goals {
   grid-column: 2/2;
-  width: 484px;
+  width: min(100%, 484px);
   height: 398px;
   position: relative;
-  margin: 113px auto 0 170px;
+  justify-self: end;
+  margin: 113px clamp(20px, 8vw, 170px) 0 auto;
 }
 
 .goals img {
@@ -474,7 +488,7 @@ html {
 
 .programme-image-one {
   grid-column: 1/4;
-  width: 272px;
+  width: min(100%, 272px);
   height: 336px;
   margin: -168px auto 0 auto;
   z-index: 1;
@@ -488,10 +502,11 @@ html {
 
 .mission {
   grid-column: 1/2;
-  width: 508px;
+  width: min(100%, 508px);
   height: 365px;
   position: relative;
-  margin: 68px auto 0 148px;
+  justify-self: start;
+  margin: 68px auto 0 clamp(20px, 7vw, 148px);
 }
 
 .mission img {
@@ -524,7 +539,7 @@ html {
 
 .programme-image-two {
   grid-column: 2/2;
-  width: 432px;
+  width: min(100%, 432px);
   height: 360px;
   margin: 116px auto;
 }
@@ -537,7 +552,7 @@ html {
 
 #research {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   position: relative;
   z-index: 1;
   border-top: 1px solid #000;
@@ -652,7 +667,7 @@ html {
 
 #programme-outcomes {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   position: relative;
   border-top: 1px solid #000;
   margin-top: 45px;
@@ -717,14 +732,14 @@ html {
   background-color: #000;
   color: white;
   padding: 43px 27px 68px 31px;
-  width: 334px;
+  width: min(calc(100% - 24px), 334px);
   height: 249px;
   margin: 210 auto 155px auto;
 }
 
 #who-can-apply {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   position: relative;
   z-index: 1;
   border-top: 1px solid #000;
@@ -734,12 +749,11 @@ html {
   grid-column: 1/3;
   border-right: 1px solid rgba(0, 0, 0, 0.5);
   border-bottom: 1px solid #000;
+  padding: 25px 81px 8px 51px;
+  height: 218px;
 }
 
 .apply-theme p {
-  width: 586px;
-  height: 201px;
-  margin: 25px 81px 8px 51px;
   font-size: 72px;
   line-height: 100%;
   font-family: "SeasonMix-Regular";
@@ -747,7 +761,7 @@ html {
 
 .apply-image {
   grid-column: 1/5;
-  width: 1164px;
+  width: min(calc(100% - 40px), 1164px);
   height: 499px;
   margin: 0 auto;
 }
@@ -773,7 +787,7 @@ html {
 .application-box-one {
   grid-column: 1/3;
   background-color: #fff;
-  width: 570px;
+  width: min(calc(100% - 24px), 570px);
   height: fit-content;
   position: relative;
   margin: 148px auto 0 auto;
@@ -783,7 +797,7 @@ html {
 .application-box-two {
   grid-column: 3/5;
   background-color: #fff;
-  width: 570px;
+  width: min(calc(100% - 24px), 570px);
   height: fit-content;
   position: relative;
   margin: 391px auto 0 auto;
@@ -793,7 +807,7 @@ html {
 .application-box-three {
   grid-column: 1/3;
   background-color: #fff;
-  width: 570px;
+  width: min(calc(100% - 24px), 570px);
   height: fit-content;
   position: relative;
   margin: 114px auto 0 auto;
@@ -803,7 +817,7 @@ html {
 .application-box-four {
   grid-column: 3/5;
   background-color: #fff;
-  width: 570px;
+  width: min(calc(100% - 24px), 570px);
   height: fit-content;
   position: relative;
   margin: 302px auto 0 auto;
@@ -905,7 +919,7 @@ html {
   position: absolute;
   top: 106px;
   left: 106px;
-  width: 463px;
+  width: min(calc(100% - 106px), 463px);
   height: 87px;
   background-color: #f96243;
   display: flex;
@@ -916,7 +930,7 @@ html {
 
 #leader-area {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   position: relative;
   margin-top: 86px;
   border-top: 1px solid #000;
@@ -947,8 +961,10 @@ html {
 .profile-box {
   position: relative;
   grid-column: 2/3;
+  width: min(100%, 306px);
   max-width: 306px;
-  height: 306px;
+  height: auto;
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -960,8 +976,8 @@ html {
 
 .profile-box-edge {
   z-index: 2;
-  width: 292px;
-  height: 292px;
+  width: calc(100% - 14px);
+  height: calc(100% - 14px);
   border-radius: 50%;
   overflow: hidden;
 }
@@ -1030,7 +1046,7 @@ html {
 
 #team {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   position: relative;
   border-top: 1px solid #000;
   height: 850px;
@@ -1061,7 +1077,7 @@ html {
 
 #rest-members {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   position: relative;
   border-top: 1px solid #000;
   height: 1333px;
@@ -1114,7 +1130,7 @@ html {
 
 #mentors {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   position: relative;
   border-top: 1px solid #000;
   min-height: 2000px;
@@ -1259,7 +1275,7 @@ html {
 
 #about {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-top: 150px;
   position: relative;
   height: 1508px;
@@ -1331,7 +1347,7 @@ html {
 
 #footer {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   height: 634px;
   font-size: 16px;
   line-height: 100%;
@@ -1432,7 +1448,7 @@ html {
 }
 
 .form {
-  width: 636px;
+  max-width: 636px;
   height: 68px;
   position: relative;
   margin-top: 42px;
@@ -1455,7 +1471,9 @@ html {
 }
 
 .footer-banner {
-  grid-column: 3/5;
+  display: flex;
+  gap: 32px;
+  grid-column: 3/4;
   position: absolute;
   top: 348px;
   left: 59px;
@@ -1463,13 +1481,13 @@ html {
 }
 
 .organiser {
-  grid-column: 3/5;
-  width: 220px;
+  grid-column: 4/5;
+  max-width: 220px;
   position: absolute;
+  left: 0;
   top: 339px;
-  left: 364px;
   font-size: 16px;
-  line-height: 20px;
+  line-height: 24px;
   z-index: 2;
 }
 
@@ -1505,6 +1523,21 @@ html {
   line-height: 100%;
 }
 
+#intro > *,
+#climate > *,
+#programme-vision > *,
+#research > *,
+#programme-outcomes > *,
+#who-can-apply > *,
+#leader-area > *,
+#team > *,
+#rest-members > *,
+#mentors > *,
+#about > *,
+#footer > * {
+  min-width: 0;
+}
+
 body {
   overflow-x: clip;
 }
@@ -1528,7 +1561,7 @@ body {
     min-height: 500px;
   }
 
-  .header-image {
+  #header-image {
     height: 500px;
     object-fit: cover;
     object-position: center;
@@ -1627,6 +1660,36 @@ body {
   }
 }
 
+@media (max-width: 1360px) {
+  #leader-area,
+  #team,
+  #rest-members,
+  #mentors {
+    height: auto;
+    row-gap: 32px;
+    align-items: start;
+  }
+
+  .team-lead-bio,
+  .team-lead-bio-right,
+  .team-member-bio-1,
+  .team-member-bio-2 {
+    margin-top: 0;
+  }
+
+  .member-box-6 {
+    position: relative;
+    top: auto;
+    left: auto;
+  }
+
+  .absolute,
+  .absolute-2 {
+    position: static;
+    width: auto;
+  }
+}
+
 @media (max-width: 1180px) {
   #navbar {
     position: sticky;
@@ -1689,12 +1752,12 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .header-image,
+  #header-image,
   .header-box {
     width: 100%;
   }
 
-  .header-image {
+  #header-image {
     height: auto;
     min-height: 420px;
   }
@@ -1750,6 +1813,7 @@ body {
   }
 
   .vision-title,
+  .apply-theme,
   .outcome-title,
   .team-title {
     padding: 24px 32px 16px;
@@ -1769,12 +1833,7 @@ body {
 
   .apply-theme {
     border-right: 0;
-  }
-
-  .apply-theme p {
-    width: auto;
-    height: auto;
-    margin: 24px 32px 16px;
+    padding: 25px 81px 58px 24px;
   }
 
   .apply-image-description {
@@ -1957,5 +2016,465 @@ body {
   .team-member-bio-2 {
     grid-column: 1 / -1;
     margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  #navbar {
+    position: relative;
+    height: auto;
+    background-color: #fcf4eb;
+  }
+
+  #navbar.scrolled {
+    background: #fcf4eb;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  #banner {
+    height: auto;
+    min-height: 22px;
+  }
+
+  .banner-textbox {
+    width: 100%;
+    min-height: 22px;
+    padding: 4px 10px;
+    font-size: 10px;
+    line-height: 1.2;
+  }
+
+  .lang-togglebox,
+  .menu {
+    display: none;
+  }
+
+  #navigation {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: start;
+    row-gap: 4px;
+    padding: 10px 12px 14px;
+    border-bottom: 1px solid #000;
+  }
+
+  .aral {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    width: 88px;
+    height: auto;
+    padding: 0;
+  }
+
+  .school {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    width: 126px;
+    height: auto;
+    margin: 22px 0 0 74px;
+  }
+
+  .square {
+    position: relative;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #000;
+    background-color: transparent;
+    justify-self: end;
+    margin-top: 8px;
+  }
+
+  .square::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    background-color: #f96243;
+  }
+
+  #header {
+    display: block;
+    margin-top: 0;
+    padding: 18px 10px 0;
+  }
+
+  #header-image {
+    height: 309px;
+  }
+
+  #header-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .header-box {
+    width: 100%;
+    height: 328px;
+    min-height: 0;
+    border-top: 0;
+    border-bottom: 1px solid #000;
+  }
+
+  .header-text {
+    padding: 56px 28px 56px 39px;
+  }
+
+  .header-text p {
+    font-size: 22px;
+  }
+
+  #intro {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-height: 680px;
+    margin-top: 0;
+    border-top: 0;
+    border-bottom: 1px solid #000;
+  }
+
+  #intro > * {
+    display: none;
+  }
+
+  #climate,
+  #research,
+  #programme-outcomes,
+  #leader-area,
+  #team,
+  #rest-members,
+  #mentors,
+  #FAQ,
+  #about {
+    display: none;
+  }
+
+  #programme-vision,
+  #who-can-apply,
+  #footer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 0;
+  }
+
+  #programme-vision {
+    padding-bottom: 72px;
+  }
+
+  .vision-title {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 30px 20px 30px 24px;
+    border-bottom: 1px solid #000;
+  }
+
+  .vision-title p,
+  .apply-theme p {
+    font-size: 40px;
+  }
+
+  .about,
+  .goals,
+  .mission {
+    grid-column: 1 / -1;
+    width: 390px;
+    height: auto;
+    aspect-ratio: 1.35 / 1;
+    margin: 18px auto 0;
+    background-color: #f96243;
+  }
+
+  .about-text,
+  .goals-text,
+  .mission-text {
+    width: 335px;
+    height: 75px;
+    padding: 10px 14px;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .programme-image-one,
+  .programme-image-two {
+    display: block;
+    grid-column: 1 / -1;
+    margin: 36px auto 10px;
+  }
+
+  .programme-image-one {
+    width: 204px;
+    height: 252px;
+  }
+
+  .programme-image-two {
+    width: 191px;
+    height: 159px;
+    margin-top: 66px;
+  }
+
+  #who-can-apply {
+    padding-bottom: 64px;
+  }
+
+  .apply-image {
+    grid-column: 1 / -1;
+    width: 392px;
+    max-width: none;
+    height: auto;
+    aspect-ratio: 1.2 / 0.66;
+    margin: 20px auto 0;
+  }
+
+  .apply-image-description {
+    grid-column: 1 / -1;
+    padding: 20px;
+    width: 392px;
+    margin: 0 auto;
+  }
+
+  .apply-image-description p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  #who-can-apply .apply-box {
+    grid-column: 1 / -1;
+    width: 390px;
+    height: 87px;
+    margin: 18px auto 24px;
+    padding: 12px 12px 12px 16px;
+  }
+
+  #who-can-apply .deadline-box {
+    margin-left: 0;
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  .apply-square-shape-one {
+    display: none;
+  }
+
+  .application-box-one,
+  .application-box-two,
+  .application-box-three {
+    grid-column: 1 / -1;
+    width: 392px;
+    margin: 22px auto 44px;
+    padding: 0 0 18px;
+  }
+
+  .application-box-four {
+    grid-column: 1 / -1;
+    width: 392px;
+  }
+
+  .application-box-one::after,
+  .application-box-two::after,
+  .application-box-three::after,
+  .application-box-four::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -10.5;
+    width: 21px;
+    height: 21px;
+    background-color: #000;
+    transform: translateX(-50%);
+  }
+
+  .note,
+  .application-note {
+    margin: 40px auto;
+    width: 346px;
+  }
+
+  .application-box-four .application-content-form ol {
+    width: 306px;
+    margin: 0 auto;
+  }
+
+  .application-content,
+  .application-content-form,
+  .application-form {
+    grid-column: 1 / -1;
+  }
+
+  .application-content p,
+  .application-content ul,
+  .application-content-form ol {
+    margin: 149px 16px 0 28px;
+  }
+
+  .application-content ul li,
+  .application-content p,
+  .note,
+  .application-content-form ol li,
+  .application-note {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .application-box-two img,
+  .application-box-three img {
+    display: none;
+  }
+
+  .application-form {
+    position: static;
+    margin: 106px auto 0 auto;
+    width: 392px;
+    padding: 24px 0 24px 31px;
+  }
+
+  .application-form p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .application-form svg {
+    width: 28px;
+    flex: 0 0 28px;
+  }
+
+  .application-form .square-shape {
+    margin-right: 33px;
+  }
+
+  #footer {
+    display: grid;
+    height: auto;
+    border-top: 1px solid #000;
+  }
+
+  .top-layer,
+  .bottom-layer,
+  .footer-overlay {
+    display: none;
+  }
+
+  .email-form {
+    grid-column: 1 / -1;
+    height: auto;
+    padding: 18px 10px 24px;
+    margin-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #000;
+  }
+
+  .email-form .footer-title {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  .form {
+    max-width: none;
+    width: 100%;
+    height: 46px;
+    margin-top: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+  }
+
+  .email-form input {
+    padding: 0 12px;
+    font-size: 12px;
+  }
+
+  .form button {
+    right: 12px;
+    font-size: 12px;
+  }
+
+  .contact,
+  .social-media,
+  .organiser,
+  .privacy,
+  .footer-banner,
+  .logo-footer {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    margin: 0;
+  }
+
+  .contact {
+    grid-column: 1 / 2;
+    width: auto;
+    height: auto;
+    padding: 20px 10px 18px;
+    border-right: 1px solid rgba(0, 0, 0, 0.5);
+  }
+
+  .social-media {
+    grid-column: 2 / 3;
+    width: auto;
+    height: auto;
+    padding: 20px 10px 18px;
+  }
+
+  .contact,
+  .social-media,
+  .organiser,
+  .privacy {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .logo-footer {
+    grid-column: 1 / -1;
+    height: 112px;
+    padding: 18px 10px 16px;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+  }
+
+  #footer-aral {
+    width: 94px;
+  }
+
+  #footer-school {
+    width: 128px;
+    margin-right: 0;
+  }
+
+  .footer-square {
+    width: 14px;
+    height: 14px;
+  }
+
+  .organiser {
+    grid-column: 1 / 2;
+    max-width: none;
+    padding: 18px 10px 28px;
+    border-right: 1px solid rgba(0, 0, 0, 0.5);
+  }
+
+  .privacy {
+    grid-column: 2 / 3;
+    padding: 18px 10px 28px;
+  }
+
+  .privacy ul {
+    padding-left: 18px;
+  }
+
+  .footer-banner {
+    grid-column: 1 / -1;
+    justify-content: center;
+    padding: 34px 0 44px;
+    border-top: 1px solid #000;
+  }
+
+  .footer-banner img {
+    width: min(124px, 48vw);
+    height: auto;
   }
 }
