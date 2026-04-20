@@ -87,6 +87,10 @@ img {
   opacity: 50%;
 }
 
+.grid-box:last-child {
+  border-right: 0;
+}
+
 .container {
   padding: 0 20px;
   position: relative;
@@ -136,6 +140,10 @@ img {
   align-items: center;
 }
 
+.mobile-lang-togglebox {
+  display: none;
+}
+
 .lang-togglebox a {
   margin-left: 34px;
   text-decoration: none;
@@ -163,6 +171,10 @@ img {
 
 .menu {
   width: 880px;
+}
+
+#mobile-menu {
+  display: none;
 }
 
 .menu > ul {
@@ -306,6 +318,16 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
+}
+
+.apply-box:hover {
+  background-color: #000;
+  color: white;
+}
+
+.apply-box:hover .square-shape {
+  background-color: #f96243;
 }
 
 .deadline-box {
@@ -421,7 +443,7 @@ img {
   object-fit: cover;
 }
 
-.about-text {
+.modal-text {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -432,15 +454,48 @@ img {
   height: 90px;
   background-color: #fff;
   padding: 31px 0 31 31px;
+  z-index: 3;
+  cursor: pointer;
 }
 
-.about-text p {
+.modal-text p {
   font-size: 22px;
   font-family: "SeasonSansTRIAL-Medium";
 }
 
-.about-text div {
+.modal-text div {
   background-color: #f96243;
+}
+
+.modal-description {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.modal-description p {
+  padding: 0 24px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.modal.active .modal-description {
+  position: absolute;
+  bottom: -400px;
+  right: 0;
+  max-height: 490px;
+  width: 710px;
+  background-color: #000;
+  color: #fff;
+  padding: 120px 100px 60px 92px;
+  z-index: 2;
+}
+
+.modal.active .square-shape {
+  background-color: #000;
+}
+
+.modal-description.active {
+  display: block;
 }
 
 .goals {
@@ -464,34 +519,12 @@ img {
   object-fit: cover;
 }
 
-.goals-text {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 298px;
-  height: 90px;
-  background-color: #fff;
-  padding: 31px 0 31 31px;
-}
-
-.goals-text p {
-  font-size: 22px;
-  font-family: "SeasonSansTRIAL-Medium";
-}
-
-.goals-text div {
-  background-color: #f96243;
-}
-
 .programme-image-one {
   grid-column: 1/4;
   width: min(100%, 272px);
   height: 336px;
   margin: -168px auto 0 auto;
-  z-index: 1;
+  z-index: 0;
 }
 
 .programme-image-one img {
@@ -1224,13 +1257,61 @@ img {
 }
 
 .faq-listbox {
-  padding: 48px;
+  padding: 48px 0;
 }
 
 .faq-item {
   display: flex;
-  border-bottom: 1px solid #000;
+  flex-direction: column;
+  padding: 0 48px;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 28px 0;
+  cursor: pointer;
+  border-bottom: 1px solid #000;
+}
+
+.faq-question p {
+  font-family: "SeasonSansTRIAL-Bold";
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 28px 0;
+  display: none;
+}
+
+.faq-answer p {
+  padding: 0 0 20px 0;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+  max-height: 200px;
+  background-color: #fff;
+}
+
+.faq-item.active .faq-question {
+  width: 100%;
+}
+
+.faq-item.active {
+  background-color: #fff;
+}
+
+.faq-question img {
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question img {
+  transform: rotate(180deg);
 }
 
 .faq-item img {
@@ -1434,7 +1515,6 @@ img {
   height: 241px;
   padding: 85px 28px 46px 59px;
   border-bottom: 1px solid #000;
-  border-right: 1px solid rgba(0, 0, 0, 0.5);
   margin-top: 47px;
 }
 
@@ -1503,7 +1583,6 @@ img {
   height: fit-content;
   width: 100%;
   height: 299px;
-  border-right: 1px solid rgba(0, 0, 0, 0.5);
   background-color: #fcf4eb;
 }
 
@@ -1977,9 +2056,7 @@ body {
     max-width: none;
   }
 
-  .about-text,
-  .goals-text,
-  .mission-text,
+  .modal-text,
   .title-card {
     width: calc(100% - 24px);
     max-width: 298px;
@@ -2021,6 +2098,119 @@ body {
 }
 
 @media (max-width: 768px) {
+  .grid-box:nth-child(2) {
+    border-right: 0;
+  }
+  .school {
+    position: absolute;
+    left: 156px;
+    top: 58px;
+    width: 120px;
+    height: auto;
+    z-index: 20;
+  }
+
+  .aral {
+    position: absolute;
+    top: 22px;
+    left: 0;
+    width: 110px;
+    height: auto;
+    z-index: 20;
+  }
+
+  .navbar-square {
+    display: block;
+    width: 13px;
+    height: 13px;
+    background-color: #000;
+    position: absolute;
+    top: 42px;
+    left: 127px;
+    z-index: 20;
+  }
+
+  .hamburger {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1100;
+    background-color: transparent;
+    border: 1px solid #000;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-color: #f96243;
+    transition: 0.3s;
+  }
+
+  /* Mobile menu overlay */
+  #mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateY(-100%);
+    transition: 0.4s ease;
+    z-index: 1;
+    background: rgba(252, 244, 235, 0.55);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .mobile-lang-togglebox {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 61px;
+    margin-top: 66px;
+  }
+
+  .mobile-lang-togglebox a {
+    margin-right: 34px;
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    font-family: "SeasonSansTRIAL-Regular";
+  }
+
+  #mobile-menu ul {
+    list-style: none;
+    text-align: left;
+    padding-left: 54px;
+  }
+
+  #mobile-menu ul li {
+    margin: 20px 0;
+  }
+
+  #mobile-menu ul li a {
+    text-decoration: none;
+    font-size: 28px;
+    font-family: "SeasonMix-Regular";
+    color: #000;
+  }
+
+  /* Active state */
+  #mobile-menu.active {
+    transform: translateY(0);
+  }
+
   #navbar {
     position: relative;
     height: auto;
@@ -2040,10 +2230,11 @@ body {
 
   .banner-textbox {
     width: 100%;
-    min-height: 22px;
+    min-height: 40px;
     padding: 4px 10px;
-    font-size: 10px;
-    line-height: 1.2;
+    font-size: 14px;
+    line-height: 1;
+    z-index: 2;
   }
 
   .lang-togglebox,
@@ -2052,16 +2243,12 @@ body {
   }
 
   #navigation {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto auto;
-    align-items: start;
-    row-gap: 4px;
-    padding: 10px 12px 14px;
-    border-bottom: 1px solid #000;
+    position: relative;
+    padding: 16px 14px 32px;
+    height: 108px;
   }
 
-  .aral {
+  /* .aral {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     width: 88px;
@@ -2075,7 +2262,7 @@ body {
     width: 126px;
     height: auto;
     margin: 22px 0 0 74px;
-  }
+  } */
 
   .square {
     position: relative;
@@ -2191,9 +2378,7 @@ body {
     background-color: #f96243;
   }
 
-  .about-text,
-  .goals-text,
-  .mission-text {
+  .modal-text {
     width: 335px;
     height: 75px;
     padding: 10px 14px;
@@ -2360,17 +2545,6 @@ body {
     padding-bottom: 22px;
   }
 
-  #footer::before,
-  #footer::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    width: 1px;
-    height: 12px;
-    background-color: rgba(0, 0, 0, 0.35);
-    transform: translateX(-50%);
-  }
-
   #footer::before {
     top: 0;
   }
@@ -2397,6 +2571,7 @@ body {
     align-items: flex-start;
     justify-content: center;
     border-bottom: 1px solid #000;
+    border-right: 0;
   }
 
   .email-form .footer-title {
@@ -2534,6 +2709,7 @@ body {
     z-index: 3;
     border-top: 1px solid #000;
     height: 405px;
+    border-right: 0;
   }
 
   .organiser {
