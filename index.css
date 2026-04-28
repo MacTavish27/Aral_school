@@ -26,11 +26,9 @@ img {
 }
 
 @font-face {
-  font-family: "SeasonSansTRIAL-Light";
-  src:
-    url("./fonts/seasons/SeasonSansTRIAL-Light.woff") format("woff"),
-    url("./fonts/seasons/SeasonSansTRIAL-Light.woff2") format("woff2");
-  font-weight: 300;
+  font-family: "SeasonSansTRIAL-Medium";
+  src: url("./fonts/seasons/SeasonSans-TRIAL-Medium.ttf") format("truetype");
+  font-weight: 550;
   font-style: normal;
 }
 
@@ -44,11 +42,11 @@ img {
 }
 
 @font-face {
-  font-family: "SeasonSansTRIAL-Medium";
+  font-family: "SeasonSansTRIAL-Light";
   src:
-    url("./fonts/seasons/SeasonSansTRIAL-Medium.woff") format("woff"),
-    url("./fonts/seasons/SeasonSansTRIAL-Medium.woff2") format("woff2");
-  font-weight: 600;
+    url("./fonts/seasons/SeasonSansTRIAL-Light.woff") format("woff"),
+    url("./fonts/seasons/SeasonSansTRIAL-Light.woff2") format("woff2");
+  font-weight: 300;
   font-style: normal;
 }
 
@@ -184,6 +182,7 @@ img {
 }
 
 .menu > ul > li > a {
+  font-family: "SeasonSansTRIAL-Regular";
   text-decoration: none;
   color: #000;
 }
@@ -768,6 +767,7 @@ img {
   width: min(calc(100% - 24px), 334px);
   height: 249px;
   margin: 210 auto 155px auto;
+  font-family: "SeasonSansTRIAL-Medium";
 }
 
 #who-can-apply {
@@ -1033,6 +1033,12 @@ img {
   margin: 17px auto;
 }
 
+.profile-desc p:nth-child(3) {
+  font-family: "SeasonSansTRIAL-Medium";
+  font-size: 16px;
+  line-height: 24px;
+}
+
 .leader-name {
   font-size: 40px;
   line-height: 44px;
@@ -1089,6 +1095,9 @@ img {
   grid-column: 2/3;
   margin-top: 86px;
   padding: 0 20px;
+  font-family: "SeasonSansTRIAL-Medium";
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .member-box {
@@ -1106,6 +1115,7 @@ img {
   grid-column: 4/5;
   margin-top: 86px;
   padding: 0 20px;
+  font-family: "SeasonSansTRIAL-Medium";
 }
 
 #rest-members {
@@ -1221,7 +1231,7 @@ img {
 .absolute-2 {
   position: absolute;
   width: 100%;
-  top: 1077px;
+  top: 1288px;
   left: 0;
 }
 
@@ -1233,6 +1243,7 @@ img {
   background-color: #000;
   z-index: 1;
   min-height: 960px;
+  margin-top: 200px;
 }
 
 .faq-title {
@@ -1403,9 +1414,6 @@ img {
   left: 190px;
   padding: 42px 18px 104px 35px;
   z-index: 2;
-}
-
-.about-left p {
   font-size: 30px;
   line-height: 40px;
   font-family: "SeasonMix-Regular";
@@ -1418,12 +1426,9 @@ img {
   width: 521px;
   background-color: #fff;
   padding: 43px 45px 56px 71px;
-}
-
-.about-right p {
   font-size: 16px;
   line-height: 24px;
-  font-family: "SeasonsTRIAL-Medium";
+  font-family: "SeasonSansTRIAL-Medium";
 }
 
 #footer {
