@@ -284,7 +284,8 @@ ul {
 
 #hero {
   padding-top: 205px;
-  border: none;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #000;
 }
 
 .hero-wrapper {
@@ -345,70 +346,52 @@ ul {
 }
 
 #intro {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  border-top: 1px solid #000;
-  margin-top: 40px;
-}
-
-.intro-left-box {
-  grid-column: 1 / 1;
-  aspect-ratio: 1 / 1;
   position: relative;
-  margin-top: 150px;
-}
-
-.intro-info {
-  grid-column: 2 / 4;
-  padding: 123px 40px 34px 40px;
-  font-size: 30px;
-  font-family: "SeasonMix-Regular";
-  border-right: 1px solid rgba(0, 0, 0, 0.5);
+  height: 507px;
 }
 
 .intro-right-box {
-  grid-column: 4 / 5;
-  width: min(100%, 256px);
-  aspect-ratio: 1 / 1;
-  height: auto;
-  position: relative;
+  position: absolute;
+  top: 0;
+  pointer-events: none;
+  z-index: -1;
+  left: 75%;
 }
 
-.intro-info > p:first-child {
+.intro_wrapper {
+  max-width: 620px;
+  padding-top: 120px;
+  padding-bottom: 80px;
+  margin: 0 auto;
+  background-color: #fcf4eb;
+}
+
+.intro-left-box {
+  position: absolute;
+  left: 0;
+  top: 125px;
+}
+
+.intro-info {
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.intro-info h2 {
   font-family: "SeasonMix-Medium";
 }
 
-.intro-left-box svg,
-.intro-right-box svg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.corner-left {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: black;
-  top: 0;
-  right: -9px;
-  z-index: 2;
-}
-
-.corner-right {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: #f96243;
-  bottom: 0;
-  right: 0;
+.intro-info p {
+  font-family: "SeasonSansTRIAL-Regular";
 }
 
 .apply-box {
-  position: relative;
+  position: absolute;
+  right: 0;
+  bottom: 0;
   background-color: #f96243;
-  grid-column: 3 / 5;
-  height: 90px;
+  height: 87px;
+  width: 50%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -444,49 +427,47 @@ ul {
 }
 
 #climate {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  position: relative;
-  z-index: 1;
-  max-height: 760px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 120px;
+  border-bottom: 1px solid #000;
 }
 
 .earth-photo {
-  grid-column: 1/2;
-  background-color: aqua;
-  max-height: 760px;
+  width: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .earth-photo img {
   width: 100%;
-  height: 100%;
   object-fit: cover;
+  object-position: center;
+  max-height: 1000px;
+  height: 100%;
 }
 
 .climate-description {
-  grid-column: 2/3;
+  width: 50%;
+  padding: 55px 130px;
+  font-size: 16px;
+  font-weight: 550;
+  line-height: 24px;
+  align-content: center;
   background-color: #000;
   color: #fff;
   font-family: "SeasonSansTRIAL-Medium";
 }
 
-.climate-description p {
-  width: min(100%, 458px);
-  height: 620px;
-  font-size: 16px;
-  line-height: 24px;
-  margin: 56px auto;
-}
-
 #programme-vision {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   position: relative;
-  margin-top: 120px;
-  border-top: 1px solid #000;
 }
 
-.programme-line-right {
+/* .programme-line-right {
   grid-column: 2/2;
   position: absolute;
   top: 610px;
@@ -506,35 +487,47 @@ ul {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-}
+} */
 
 .vision-title {
-  display: flex;
-  align-items: center;
-  grid-column: 2/2;
+  width: 50%;
+  margin-left: auto;
+  font-size: 72px;
   font-family: "SeasonMix-Regular";
-  padding: 25px 81px 8px 51px;
-  height: 200px;
-  border-bottom: 1px solid #000;
+  font-weight: 420;
+  background-color: #fcf4eb;
+  padding: 25px 21px 25px 50px;
+  position: relative;
 }
 
-.vision-title p {
-  font-size: 72px;
-  line-height: 100%;
+.vision-title::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: calc(100% + 20px);
+  height: 1px;
+  background-color: #000;
+}
+
+.programme-wrapper {
+  position: relative;
+  height: 1500px;
 }
 
 .about {
-  grid-column: 1/2;
-  width: min(100%, 520px);
-  height: 350px;
-  position: relative;
-  margin: -60px auto;
+  position: absolute;
+  top: 60px;
+  left: 30px;
+  width: 519px;
+  height: 349px;
 }
 
 .about img {
-  width: 100%;
   height: 100%;
+  width: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .modal-text {
@@ -548,7 +541,7 @@ ul {
   height: 90px;
   background-color: #fff;
   padding: 31px 0 31 31px;
-  z-index: 3;
+  z-index: 0;
   cursor: pointer;
 }
 
@@ -593,32 +586,27 @@ ul {
 }
 
 .goals {
-  grid-column: 2/2;
-  width: min(100%, 484px);
-  height: 398px;
-  position: relative;
-  justify-self: end;
-  margin: 113px clamp(20px, 8vw, 170px) 0 auto;
+  position: absolute;
+  top: 417px;
+  right: 50px;
+  width: 484px;
+  height: 397px;
 }
 
 .goals img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.goals img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  object-position: center;
 }
 
 .programme-image-one {
-  grid-column: 1/4;
-  width: min(100%, 272px);
+  position: absolute;
+  width: 272px;
   height: 336px;
-  margin: -168px auto 0 auto;
-  z-index: 0;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 .programme-image-one img {
@@ -628,12 +616,11 @@ ul {
 }
 
 .mission {
-  grid-column: 1/2;
-  width: min(100%, 508px);
+  position: absolute;
+  bottom: 50px;
+  left: 10%;
+  width: 507px;
   height: 365px;
-  position: relative;
-  justify-self: start;
-  margin: 68px auto 0 clamp(20px, 7vw, 148px);
 }
 
 .mission img {
@@ -665,10 +652,12 @@ ul {
 }
 
 .programme-image-two {
-  grid-column: 2/2;
-  width: min(100%, 432px);
-  height: 360px;
-  margin: 116px auto;
+  position: absolute;
+  width: 346px;
+  height: 245px;
+  bottom: 125px;
+  right: 25%;
+  transform: translateX(50%);
 }
 
 .programme-image-two img {
@@ -1852,6 +1841,10 @@ body {
     font-size: 26px;
     padding: 40px 30px;
   }
+
+  #intro {
+    padding-bottom: 80px;
+  }
 }
 
 @media (max-width: 992px) {
@@ -1962,5 +1955,9 @@ body {
     width: calc(100% + 40px);
     pointer-events: none;
     background-color: #000;
+  }
+
+  #intro {
+    padding-bottom: 60px;
   }
 }
