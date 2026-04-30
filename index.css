@@ -1398,8 +1398,7 @@ html {
   height: 336px;
   position: absolute;
   pointer-events: none;
-  z-index: -1;
-  background-image: url(./svg/profile-line-box.svg);
+  background-image: url("./svg/profile-line-box.svg");
 }
 
 .image img {
@@ -1408,6 +1407,7 @@ html {
   object-fit: cover;
   object-position: top;
   border-radius: 50%;
+  z-index: 0;
 }
 
 .name {
