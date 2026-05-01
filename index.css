@@ -855,7 +855,6 @@ html {
   color: white;
   padding: 43px 27px 68px 31px;
   width: calc(25% - 24px);
-  height: 249px;
   font-family: "SeasonSansTRIAL-Medium";
   font-size: 16px;
   line-height: 22px;
@@ -1417,7 +1416,8 @@ html {
   font-style: normal;
   font-weight: 420;
   line-height: 44px;
-  margin: 20px auto 0;
+  margin: 20px auto;
+  padding-left: 0;
   text-align: left;
   width: 336px;
 }
@@ -1900,6 +1900,33 @@ body {
   .image-card {
     height: auto;
   }
+
+  .mentor_ornament {
+    display: none;
+  }
+
+  .mentor-header {
+    font-size: 64px;
+  }
+
+  .image {
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+  }
+
+  .image img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .image::before {
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -2012,6 +2039,79 @@ body {
 
   .research-description {
     padding: 25px 80px 120px;
+  }
+
+  .outcome-box {
+    width: calc(50% - 10px);
+    margin: 30px 0;
+  }
+
+  .outcome-line-left-box {
+    display: none;
+  }
+
+  .application-wrapper {
+    height: 2000px;
+  }
+
+  .application-box-one {
+    left: 50%;
+    transform: translate(-50%);
+    top: -100px;
+  }
+
+  .apply-square-shape-one {
+    z-index: 1;
+  }
+
+  .application-box-two {
+    right: 50%;
+    transform: translate(50%);
+    top: 450px;
+  }
+
+  .application-box-three {
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .application-box-four {
+    right: 50%;
+    transform: translate(50%);
+    top: 1200px;
+  }
+
+  .application-box-two img {
+    display: none;
+  }
+
+  .application-box-three img {
+    display: none;
+  }
+
+  .profile-box {
+    max-width: 49%;
+  }
+
+  .team-ornament,
+  .profile-ornament {
+    display: none;
+  }
+
+  .image {
+    width: 220px;
+    height: 220px;
+    padding: 10px;
+  }
+
+  .image img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .name {
+    font-size: 28px;
+    padding-left: 20px;
   }
 }
 
@@ -2235,6 +2335,119 @@ body {
     padding: 0;
   }
 
+  .apply-theme {
+    width: 100%;
+    padding: 28px 0 60px;
+    font-size: 48px;
+    height: auto;
+  }
+
+  .apply-image-description {
+    width: 90%;
+  }
+
+  .apply-box-2 {
+    width: 100%;
+    left: 0;
+    margin: 0;
+  }
+  .apply-square-shape-one {
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .team-title {
+    width: 100%;
+    height: auto;
+    padding: 28px 0;
+    font-size: 48px;
+  }
+
+  .team-title::before {
+    width: calc(100% + 50px);
+    left: -20px;
+  }
+
+  .leader-wrapper {
+    padding-bottom: 60px;
+    margin-bottom: 40px;
+  }
+
+  .profile-box {
+    max-width: 100%;
+  }
+
+  .bio {
+    display: block;
+  }
+
+  .team-lead-bio,
+  .team-lead-bio-right {
+    width: 100%;
+  }
+  .teambox {
+    display: block;
+  }
+
+  .member-box {
+    width: 100%;
+    padding: 50px 0;
+  }
+
+  .member-image-box {
+    max-width: 100%;
+  }
+
+  .rest-memberbox {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+
+  .rest-member-imageCard {
+    width: calc(50% - 10px);
+    max-width: 100%;
+  }
+
+  .rest-member-description {
+    width: calc(50% - 10px);
+  }
+
+  .mentor-header {
+    width: 100%;
+    height: auto;
+    padding: 30px 0;
+  }
+
+  .category_item {
+    display: none;
+  }
+
+  .mentors_item {
+    width: 100%;
+  }
+
+  .image {
+    width: 336px;
+    height: 336px;
+  }
+
+  .image img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .name {
+    padding-left: 0;
+  }
+
+  .about-title {
+    font-size: 64px;
+  }
+
   @media (max-width: 768px) {
     .intro_wrapper {
       max-width: 100%;
@@ -2264,6 +2477,134 @@ body {
 
     .research-description {
       padding: 20px 38px 38px;
+    }
+
+    #leader-area {
+      position: relative;
+      z-index: 0;
+      background-color: #fcf4eb;
+    }
+
+    .leader-wrapper {
+      display: block;
+      margin: 0;
+    }
+
+    .profile-area {
+      width: 100%;
+    }
+
+    .bio {
+      width: 100%;
+    }
+
+    .member-box {
+      display: block;
+    }
+
+    .member-image-box {
+      width: 100%;
+    }
+
+    .team-member-bio-1 {
+      width: 100%;
+    }
+
+    #team,
+    #rest-members {
+      background-color: #fcf4eb;
+      position: relative;
+      z-index: 0;
+      padding: 0;
+    }
+
+    .rest-memebers-wrapper {
+      padding: 40px 0;
+    }
+
+    .rest-memberbox {
+      display: block;
+    }
+
+    .rest-member-imageCard,
+    .rest-member-description {
+      width: 100%;
+    }
+    #mentors {
+      position: relative;
+      z-index: 0;
+      background-color: #fcf4eb;
+    }
+    .mentors_item {
+      display: block;
+    }
+
+    .mentors_photo {
+      width: 100%;
+    }
+
+    .image {
+      width: 586px;
+      height: 586px;
+      padding: 20px;
+    }
+
+    .name {
+      padding-left: 20px;
+      margin-left: 0;
+      font-size: 40px;
+    }
+
+    .mentors_content {
+      width: 100%;
+      padding: 0 20px;
+    }
+
+    #FAQ {
+      margin-top: 0;
+      min-height: 1300px;
+    }
+
+    .faq-box {
+      display: block;
+      width: 90%;
+    }
+
+    .faq-listbox {
+      width: 100%;
+      padding: 0;
+    }
+
+    .faq-ornament {
+      display: none;
+    }
+
+    #about img {
+      display: none;
+    }
+
+    .about-title {
+      grid-column: 1/3;
+      height: fit-content;
+      padding: 30px;
+      border-top: 1px solid #000;
+    }
+
+    .about-left {
+      top: 200px;
+      left: 50%;
+      transform: translate(-50%);
+      width: 100%;
+      height: auto;
+      padding: 20px;
+    }
+
+    .about-right {
+      width: 100%;
+      top: 400px;
+      right: 50%;
+      transform: translate(50%);
+      padding: 20px;
     }
   }
 }
