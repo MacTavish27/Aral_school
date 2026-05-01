@@ -1384,8 +1384,8 @@ html {
 
 .image {
   position: relative;
-  width: 336px;
-  height: 336px;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1394,20 +1394,22 @@ html {
 
 .image::before {
   content: "";
-  width: 336px;
-  height: 336px;
+  width: 100%;
+  height: 100%;
   position: absolute;
   pointer-events: none;
   background-image: url("./svg/profile-line-box.svg");
+  background-size: 100% 100%;
 }
 
 .image img {
-  width: 292px;
-  height: 292px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: top;
   border-radius: 50%;
   z-index: 0;
+  padding: 10px;
 }
 
 .name {
@@ -2431,8 +2433,8 @@ body {
   }
 
   .image {
-    width: 336px;
-    height: 336px;
+    width: 100%;
+    height: 100%;
   }
 
   .image img {
@@ -2446,6 +2448,232 @@ body {
 
   .about-title {
     font-size: 64px;
+  }
+
+  #footer {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 10.7vw 38.6vw 98.3vw 74.2vw 18.5vw;
+    height: auto;
+    min-height: 0;
+    background-color: #fcf4eb;
+    line-height: 1.12;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+  }
+
+  #footer .top-layer,
+  #footer .bottom-layer,
+  #footer .contact,
+  #footer .social-media,
+  #footer .logo-footer,
+  #footer .email-form,
+  #footer .footer-overlay,
+  #footer .footer-banner,
+  #footer .organiser,
+  #footer .privacy {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: auto;
+    height: auto;
+    margin: 0;
+    grid-column: auto;
+  }
+
+  #footer .top-layer {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    border-bottom: 1px solid #000;
+    background-color: #fcf4eb;
+  }
+
+  #footer .top-layer::after,
+  #footer .bottom-layer::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    background-color: #000;
+    transform: translateX(-50%);
+  }
+
+  #footer .email-form {
+    grid-column: 1 / 3;
+    grid-row: 2;
+    display: block;
+    padding: 7.5vw 10.7vw 10.3vw;
+    border-bottom: 1px solid #000;
+    background-color: #fcf4eb;
+  }
+
+  #footer .footer-title {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  #footer .form {
+    max-width: none;
+    width: 100%;
+    height: 12.4vw;
+    margin-top: 24px;
+    border: 1px solid #000;
+    overflow: hidden;
+  }
+
+  #footer .email-form input {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    padding: 0 24vw 0 4.2vw;
+    background-color: transparent;
+    color: #808e8d;
+    font-size: 18px;
+  }
+
+  #footer .form button {
+    right: 4.2vw;
+    padding: 0;
+    font-size: 18px;
+  }
+
+  #footer .contact {
+    grid-column: 1;
+    grid-row: 3;
+    z-index: 2;
+    padding: 40px;
+  }
+
+  #footer .social-media {
+    grid-column: 2;
+    grid-row: 3;
+    z-index: 2;
+    padding: 40px;
+  }
+
+  #footer .org-name,
+  #footer .address,
+  #footer .phone,
+  #footer .email,
+  #footer .social-media a,
+  #footer .organiser p,
+  #footer .privacy ul li a {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  #footer .contact br {
+    display: block;
+    content: "";
+    margin-top: 1.5vw;
+  }
+
+  #footer .logo-footer {
+    grid-column: 1 / 3;
+    grid-row: 3;
+    z-index: 1;
+    padding: 0;
+    border-bottom: 1px solid #000;
+    pointer-events: none;
+  }
+
+  #footer .logo-footer::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: #000;
+    transform: translateX(-50%);
+  }
+
+  #footer .logo-footer img {
+    position: absolute;
+    height: 36px;
+  }
+
+  #footer #footer-aral {
+    left: 0;
+    bottom: 21vw;
+    width: 31vw;
+  }
+
+  #footer #footer-school {
+    right: 0;
+    bottom: 8.2vw;
+    width: 35.2vw;
+    margin: 0;
+  }
+
+  #footer .footer-square {
+    position: absolute;
+    left: 50%;
+    top: 77.3%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+  }
+
+  #footer .footer-overlay {
+    grid-column: 1 / 3;
+    grid-row: 4;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 8.4vw 7vw 0 10.7vw;
+    border-bottom: 1px solid #000;
+    background-color: #fcf4eb;
+  }
+
+  #footer .organiser {
+    grid-column: 1;
+    z-index: 2;
+  }
+
+  #footer .organiser p {
+    margin: 0;
+  }
+
+  #footer .organiser p:first-child {
+    margin-bottom: 1vw;
+  }
+
+  #footer .privacy {
+    grid-column: 2;
+    z-index: 2;
+    line-height: 1.12;
+  }
+
+  #footer .privacy ul {
+    margin: 0;
+    padding-left: 4.6vw;
+  }
+
+  #footer .footer-banner {
+    position: absolute;
+    z-index: 2;
+    top: 39.5vw;
+    left: 46vw;
+    display: block;
+  }
+
+  #footer .footer-banner img {
+    width: 41vw;
+    height: auto;
+  }
+
+  #footer .bottom-layer {
+    grid-column: 1 / 3;
+    grid-row: 5;
+    border-top: 0;
+    background-color: #fcf4eb;
+  }
+
+  #footer .bottom-layer::after {
+    height: 12.7vw;
   }
 
   @media (max-width: 768px) {
@@ -2477,6 +2705,10 @@ body {
 
     .research-description {
       padding: 20px 38px 38px;
+    }
+
+    #who-can-apply {
+      padding-bottom: 80px;
     }
 
     #leader-area {
@@ -2541,12 +2773,6 @@ body {
 
     .mentors_photo {
       width: 100%;
-    }
-
-    .image {
-      width: 586px;
-      height: 586px;
-      padding: 20px;
     }
 
     .name {
